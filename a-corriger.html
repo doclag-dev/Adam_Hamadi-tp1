@@ -1,0 +1,32 @@
+<!--
+Liste des 7 défauts identifiés et explication :
+1. Absence de la déclaration <!DOCTYPE html> : active le mode rétrocompatible, créant des incohérences de rendu entre navigateurs.
+2. Absence de l'attribut lang sur <html> : nuit à l'accessibilité et au référencement linguistique.
+3. Chevauchement de balises (<p>...<strong>...</p></strong>) : casse la hiérarchie stricte du DOM et oblige le navigateur à corriger l'erreur de fermeture.
+4. Balise <hr> imbriquée dans un <p> : <hr> est un élément de niveau bloc interdit dans un paragraphe, ce qui ferme prématurément le <p> et crée un </p> orphelin.
+5. Identifiant id="info" en double : la norme W3C exige l'unicité stricte de chaque id par page, indispensable pour le CSS et le JavaScript (utiliser class à la place).
+6. Attribut sans guillemets avec espaces (title=horaires du club) : le navigateur interprète les mots séparés comme des attributs fantômes invalides (« du » et « club »).
+7. Balise <p> après la fermeture de </html> : aucun élément de contenu ne peut résider hors de <body> ni après la balise racine <html>.
+-->
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page corrigée</title>
+</head>
+
+<body>
+    <p>Bienvenue au <strong>club de code.</strong></p>
+    <p>Nos ateliers ont lieu le mercredi</p>
+    <hr>
+    <p>de 14 h à 17 h.</p>
+    <p class="info">Salle B12</p>
+    <p class="info">Ouverts à tous les niveaux</p>
+    <p title="horaires du club">Entrée libre</p>
+    <p>Contact : club@tek-up.tn<br>Tél. : 70 000 000</p>
+    <p>Texte ajouté après la fin du document</p>
+</body>
+
+</html>
